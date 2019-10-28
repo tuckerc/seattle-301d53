@@ -132,4 +132,5 @@ if(localStorage.busmall){
   }
 }
 
+//call displayPics
 displayPics();
