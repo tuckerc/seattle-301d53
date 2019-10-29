@@ -1,4 +1,13 @@
-header div, main div, footer div {
+#wrapper div {
   background-color: gray;
   border: 1px solid rgb(73, 73, 73);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  #wrapper div {
+    background-color: green;
+    border: 1px solid rgb(0, 73, 0);
+    text-align: center;
+  }  
 }
