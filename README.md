@@ -12,9 +12,29 @@ Estimate of time needed to complete: 2 hours
 
 Start time: 09:30
 
-Finish time: _____
+Finish time: 12:00
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2.5 hours
+
+### Feature 2: Filter images
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: 30 minutes
+
+### Feature 3: Style
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 12:30
+
+Finish time: 1:30
+
+Actual time needed to complete: 1 hour
 
 ### Links and Resources
 * [submission PR](http://xyz.com)
