@@ -27,3 +27,7 @@ li {
   width: 100px;
 }
 ```
+## result
+
+```
+The result will look like a yellow box with three red boxes inside it. The div needs padding and the li's need margin. This would be a good start.
