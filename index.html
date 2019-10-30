@@ -5,6 +5,9 @@
   <head>
     <title>The Gallery of Horns</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   </head>
   <body>
@@ -14,23 +17,8 @@
         <option value="default">Filter by Keyword</option>
       </select>
     </header>
-    <!-- The #each helper iterates over an array of items. -->
-    <script id="image-gallery" type="text/x-handlebars-template">
-
-      <!-- image is looked up on the global context -->
-      {{#each image}}
-
-        <!-- Here the context is each image. So we can access its properties directly: -->
-        <h2>{{title}}</h2>
-        <img src="{{image_url}}" alt="{{description}}">
-        <p>{{description}}</p>
-
-      {{/each}}
-
-    </script>
-
-    <!--Your new content will be displayed in here-->
-    <main class="content-placeholder"></main>
+    
+    <main></main>
 
     <footer>
       &copy; 2019 Code Fellows

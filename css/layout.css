@@ -1,0 +1,27 @@
+header, main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+main div {
+  float: left;
+  width: 23%;
+  min-height: 80vh;
+  max-height: auto;
+  margin: 1.5vh 0.5vw;
+  overflow: hidden;
+  border: 0.5vw solid gray;
+  padding: 1vw;
+}
+
+div img {
+  max-height: 80%;
+  max-width: 80%;
+}
+
+footer {
+  float: none;
+  clear: both;
+  width: 90%;
+  text-align: center;
+}
