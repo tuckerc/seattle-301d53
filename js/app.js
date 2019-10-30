@@ -3,6 +3,7 @@
 $(function() {
   $.get('data/images.json')
     .then(imageLoader => {
+      let seen = {};
       imageLoader.forEach(image => {
         // add images to main
         let mainDivs = $('<div></div>');
@@ -11,7 +12,10 @@ $(function() {
         mainDivs.append(`<p>${image.description}</p>`);
         $('main').append(mainDivs);
         // populate select
-        $('select').append(`<option value='${image.keyword}'>${image.keyword}</option>`);
+        if(!seen[image.keyword]) {
+          $('select').append(`<option value='${image.keyword}'>${image.keyword}</option>`);
+          seen[image.keyword] = true;
+        }
       })
     })
   $('select').on('change',() => {
@@ -19,8 +23,6 @@ $(function() {
     $.get('data/images.json')
       .then(imageLoader => {
         imageLoader.forEach(image => {
-          console.log(`image.keyword: ${image.keyword}`);
-          console.log(`$('select').first().value ${$('select').first().val()}`);
           if(image.keyword === $('select').first().val()) {
             // add images to main
             let mainDivs = $('<div></div>');
