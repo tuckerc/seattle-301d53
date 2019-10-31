@@ -9,7 +9,6 @@
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/theme.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   </head>
   <body>
     <header>
@@ -19,7 +18,22 @@
       </select>
     </header>
     
-    <main></main>
+    <!--This is our template. -->
+    <!--Data will be inserted in its according place, replacing the brackets.-->
+    <script id="image-gallery" type="text/x-handlebars-template">
+      
+      {{#each}}
+        <div>
+          <h2>{{title}}</h2>
+          <img src='{{image_url}}' alt='{{description}}'>
+          <p>{{description}}</p>
+        </div>
+      {{/each}}
+    
+    </script>
+
+    <!--Your new content will be displayed in here-->
+    <main class="content-placeholder"></div>
 
     <footer>
       &copy; 2019 Code Fellows
@@ -29,6 +43,7 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=";
       crossorigin="anonymous">;
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src='js/app.js'></script>    
   </body>
 </html>

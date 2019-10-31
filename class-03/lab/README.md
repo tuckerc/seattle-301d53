@@ -38,3 +38,4 @@ Actual time needed to complete: 1 hour
 
 ### Links and Resources
 * [submission PR](https://github.com/tuckerc/seattle-301d53/pull/12)
+* https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
