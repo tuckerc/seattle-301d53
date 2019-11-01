@@ -1,25 +1,30 @@
 body {
-  background: linear-gradient(white, green);
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
 h1 {
   font-family: 'Faster One', cursive;
-  font-size: 5em;
-  background: -webkit-linear-gradient(rgb(255, 0, 0) 10%, rgb(255, 255, 255));
+  font-size: 5vw;
+  background: -webkit-linear-gradient(rgba(9,9,121,1) 30%, rgba(0,212,255,1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-color: white;
 }
 
 select {
-  background-color: red;
-  color: white;
+  background: linear-gradient(white, green);
+  color: darkblue;
   font-size: 1em;
+  text-align: center;
 }
 
 main div {
-  background-color: red;
+  background: rgb(2,0,36);
+  /* THANK YOU: https://cssgradient.io/ */
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
   color: white;
+  border: 0.5vw solid silver;
 }
 
 div h2 {
@@ -28,4 +33,9 @@ div h2 {
 
 div img {
   background-color: white;
+}
+
+button {
+  background: linear-gradient(white, green);
+  color: darkblue;
 }

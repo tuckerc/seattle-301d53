@@ -1,53 +1,76 @@
 'use strict';
 
 $(function() {
-  $.get('data/images.json')
-    .then(content => {
-      
-      console.log(content);
-      
+  
+  let images1 = new ImageContainer(1, 'data/images.json');
+  images1.getData();
+
+  let images2 = new ImageContainer(2, 'data/images2.json');
+  images2.getData();
+
+  let currentImages = images1;
+
+  $('#dropDownMenu').on('change',() => {
+    currentImages.renderPage($('#dropDownMenu').val());
+  });
+  
+  function Image(img) {
+    this.image_url = img.image_url;
+    this.title = img.title;
+    this.description = img.description;
+    this.keyword = img.keyword;
+    this.horns = img.horns;
+  }
+
+  function ImageContainer(pageNum, path) {
+    this.pageNum = pageNum,
+    this.path = path,
+    this.images = new Array(),
+    this.getData = function() {
+      $.get(this.path)
+        .then(images => {
+          images.forEach(img => {
+            this.images.push(new Image(img));
+          });
+        })
+        .then( () => {
+          this.renderPage();
+        });
+    },
+    this.renderPage = function(keyword) {
+      $('main').empty();      
+      // loop through images
+      this.images.forEach(image => {
+        if(!keyword || (keyword && image.keyword === $('select').first().val())) {
+          // Grab the template script
+          let theTemplateScript = $("#image-gallery").html();
+          // Compile the template
+          let theTemplate = Handlebars.compile(theTemplateScript);
+          // Pass our data to the template
+          var theCompiledHtml = theTemplate(image);
+          // Add the compiled html to the page
+          $('.content-placeholder').append(theCompiledHtml);
+        }
+      });
+      this.updateSelect();
+    },
+    this.updateSelect = function() {
+      $('option').not(':first').remove();
       let seen = {};
-      // Grab the template script
-      var theTemplateScript = $("#image-gallery").html();
-
-      // Compile the template
-      var theTemplate = Handlebars.compile(theTemplateScript);
-      
-      // Pass our data to the template
-      var theCompiledHtml = theTemplate(content);
-
-      console.log('made it');
-
-      console.log(`theCompiledHtml: ${theCompiledHtml}`);
-
-      // Add the compiled html to the page
-      $('.content-placeholder').append(theCompiledHtml);
-      
-      content.forEach(image => {
-        
-        console.log(`image: ${image}`);
-        
+      this.images.forEach(image => {
         // populate select
         if(!seen[image.keyword]) {
-          $('select').append(`<option value='${image.keyword}'>${image.keyword}</option>`);
+          // Grab the template script
+          let theTemplateScript = $("#dropDown").html();
+          // Compile the template
+          let theTemplate = Handlebars.compile(theTemplateScript);
+          // Pass our data to the template
+          var theCompiledHtml = theTemplate(image);
+          // Add the compiled html to the page
+          $('#dropDownMenu').append(theCompiledHtml);
           seen[image.keyword] = true;
         }
       });
-    });
-  $('select').on('change',() => {
-    $('main *').remove();
-    $.get('data/images.json')
-      .then(imageLoader => {
-        imageLoader.forEach(image => {
-          if(image.keyword === $('select').first().val()) {
-            // add images to main
-            let mainDivs = $('<div></div>');
-            mainDivs.append(`<h2>${image.title}</h2>`);
-            mainDivs.append(`<img src='${image.image_url}' alt='${image.description}'></img>`);
-            mainDivs.append(`<p>${image.description}</p>`);
-            $('main').append(mainDivs);
-          }
-        })
-      })
-  });
+    };
+  }
 });
