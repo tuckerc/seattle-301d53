@@ -1,0 +1,38 @@
+#wrapper {
+  margin: auto;
+}
+
+header, main, footer {
+  width: 484px;
+  margin: auto;
+}
+
+header div {
+  width: 480px;
+}
+
+.headerSmall {
+  line-height: 75px;
+}
+
+.headerLarge {
+  line-height: 150px;
+}
+
+.headerMedium {
+  line-height: 125px;
+}
+
+main {
+  height: auto;
+}
+
+main div {
+  float: left;
+  width: 240px;
+  line-height: 250px;
+}
+
+footer div {
+  line-height: 80px;
+}

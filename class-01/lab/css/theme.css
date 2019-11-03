@@ -1,0 +1,4 @@
+header div, main div, footer div {
+  background-color: gray;
+  border: 1px solid rgb(73, 73, 73);
+}
