@@ -1,38 +1,73 @@
+/* Mobile as default */
 #wrapper {
-  margin: auto;
-}
-
-header, main, footer {
+  margin: 0 auto;
+  text-align: center;
   width: 484px;
-  margin: auto;
+  margin-top: 6vh;
 }
 
-header div {
-  width: 480px;
+#wrapper div {
+  float: left;
+  clear: none;
 }
 
 .headerSmall {
   line-height: 75px;
+  width: 480px;
 }
 
 .headerLarge {
   line-height: 150px;
+  width: 480px;
 }
 
 .headerMedium {
   line-height: 125px;
+  width: 480px;
 }
 
-main {
-  height: auto;
-}
-
-main div {
-  float: left;
+.square {
   width: 240px;
   line-height: 250px;
 }
 
-footer div {
+.footer {
   line-height: 80px;
+  width:480px;
+  margin-bottom: 6vh;
 }
+
+/* Desktop View */
+@media (min-width: 768px) {
+  #wrapper {
+    width: 970px;
+  }
+
+  .headerSmall {
+    width: 960px;
+    line-height: 100px;
+  }
+
+  .footer {
+    width: 760px;
+    line-height: 150px;
+  }
+
+  .square {
+    width: 190px;
+    line-height: 250px;
+  }
+
+  .headerLarge {
+    width: 200px;
+    line-height: 600px;
+    margin-left: 0px;
+    float: left;
+  }
+
+  .headerMedium {
+    line-height: 200px;
+    width: 380px;
+    margin: auto;
+  }
+} 
